@@ -1,0 +1,11 @@
+|--------------------------------------------------------------------------------------------------------|
+|						MODULO DESARROLLADO PARA CORPOSALUD A FECHA: ENERO DE 2017						 |
+|						DESARROLLADO POR: GIOVANNY AVILA C.I.: 2348706 Y JULIO CHIRINOS C.I.:			 |
+|						GERENCIA DE INFORMATICA Y SISTEMAS, COORDINACIÓN DE SISTEMAS					 |
+|																										 |
+|																										 |
+|						DESARROLLADO CON LA FINALIDAD DE LLEVAR EL CONTROL DE LOS GASTOS MEDICOS		 |
+|							DEL PERSONAL DE CORPOZULIA													 |
+|--------------------------------------------------------------------------------------------------------|
+
+|	DESARROLLADO BAJO ESTANDARES DE SOFTWARE LIBRE
