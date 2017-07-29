@@ -1,0 +1,15 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+
+	background-color: #e3e3e3;
+}
+
+.contenedor{
+	background-color: #fff;
+	margin-top: 17px;
+	box-shadow: 1px 2px 2px #888888;
+}

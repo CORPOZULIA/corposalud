@@ -1,0 +1,36 @@
+.navigation{
+	background-color: #fff;
+	color: #000;
+	border-radius: 0px;
+	height: 70px;
+	padding-top: 10px;
+
+}
+
+.card{
+	background-color: #fff;
+	font-family: Helvetica, Arial;
+}
+
+.body{
+	background-color: #EEEEEC;
+}
+body{
+	background-color: #EEEEEC;
+}
+
+.brand-logo{
+	max-width: 110px;
+	max-height: 270px;
+	margin-top: -4px;
+}
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    margin-right: -15px;
+    margin-left: -15px;
+    background-color: #fff;
+}
+
+.jumboBox{
+	background-color: #3465A4;
+	margin-top: -20px;
+}

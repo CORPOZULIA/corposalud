@@ -25,3 +25,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## Sistema de gastos medicos de CORPOZULIA / CORPOSALUD
+
+Instalacion: 
+1) CLONAR EL REPOSITORIO EN LA MAQUINA LOCAL
+2) DENTRO DEL DIRECTORIO EJECUTAR EL COMANDO composer update
+3) UNA VEZ TERMINADO EL PROCESO ANTERIOR EJECUTAR EL COMANDO cp .emv.example .env 
+4) EJECUTAR EL COMANDO php artisan key:generate
+
+## CON LOS PASOS ANTERIORES QUEDARA INSTALADO EL SISTEMA
+# SOLO FALTA CONFIGURAR LA BASE DE DATOS Y LANZAR LAS MIGRACIONES
