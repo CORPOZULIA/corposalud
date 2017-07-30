@@ -16,7 +16,7 @@ class ModulosTable extends Seeder
         if(Modulo::count() > 0)
         {
             print "Truncando tabla modulos...";
-            DB::statement('TRUNCATE modulos CASCADE');
+            DB::statement('TRUNCATE general.modulos CASCADE');
         }
         print "Creando modulos...";
     	

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DisponibilidadView extends Model
 {
-   	protected $table = 'corposalud.disponibilidades_nominas';
+   	protected $table = 'corposalud.disponibilidad_funcionario';
 
    	protected $fillable = [ 
    		'a_pagar', 'monto_otorgado', 'nombres', 'apellidos', 'cedula', 'monto_disponible' 

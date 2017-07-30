@@ -98,4 +98,30 @@ return [
 		],
 	],
 
+	/**
+	 * MODULO PARA EL TRATAMIENTO DE PERSONAS DENTRO DEL SISTEMA DE CORPOSALUD
+	 * EN ESTE MODULO SE PUEDEN REALIZAR LA AGREGACION DE NUEVOS FUNCIONARIOS
+	 * 	
+	 */
+	[
+		'nombre_modulo'	=> 'Control de funcionarios',
+		'descripcion_modulo' => 'Modulo para la gestion de funcionarios de CORPOZULIA, agregar, deshabilitar etc...',
+		'url_modulo'	=> 'funcionarios',
+
+		'programas' => [
+
+			//PROGRAMAS DE CORPOALUD
+			[		
+				'nombre_programa' => 'Agregar funcionarios',
+				'descripcion_programa' => 'Programa para agregar funcionarios a la base de datos',
+				'url_programa' 	=> 'funcionarios/Agregar'
+			],
+			[		
+				'nombre_programa' => 'Gestion de familiares',
+				'descripcion_programa' => 'Programa para consultar familiares en la base de datos central de CORPOZULIA',
+				'url_programa' 	=> 'funcionarios/Consultar'
+			],
+		],
+	],
+	
 ];

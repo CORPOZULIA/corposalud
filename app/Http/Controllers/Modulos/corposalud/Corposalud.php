@@ -201,9 +201,9 @@ class Corposalud extends Controller
 
     private function _auth($accion)
     {
-        if(verificar_permisos($accion, $this->modulo_id))
+        if(\App\Permiso::check_permisos($accion,Auth::user()->id ,$this->modulo_id))
         {
-            push_auditoria('EL USUARIO '.Auth::user()->empleado->persona->nombres.' HA EJERCIDO UNA ACCION DE '.$accion, 'CORPOSALUD', 'FACTURAS');
+            \App\Auditoria::auditoria('EL USUARIO '.Auth::user()->empleado->persona->nombres.' HA EJERCIDO UNA ACCION DE '.$accion, $this->modulo_id, Auth::user()->id);
 
             return true;
         }
@@ -225,7 +225,7 @@ class Corposalud extends Controller
         *   SE ACTUALIZARA LA COLUMNA edo_factura A 1 (QUE SIGNIFICA CERRADO)
         *   RETORNA TRUE DE TENER PERMSOS
         */
-        if(verificar_permisos('UPDATE', $this->modulo_id))
+        if(\App\Permiso::check_permisos('UPDATE', $this->modulo_id))
         {
             $desde  = '';
             $hasta = '';
@@ -266,7 +266,7 @@ class Corposalud extends Controller
                 ])->update(['edo_factura'=>1]);
             }
 
-            push_auditoria('EL USUARIO '.Auth::user()->empleado->persona->nombres.' HA REALIZADO UN CIERRE DE LAS FACTURAS EN LAS FECHAS COMPRENDIDAS ENTRE: '.$desde.' Y '.$hasta, 'CORPOSALUD', 'GESTION DE FACTURAS');
+            \App\Auditoria::auditoria('EL USUARIO '.Auth::user()->empleado->persona->nombres.' HA REALIZADO UN CIERRE DE LAS FACTURAS EN LAS FECHAS COMPRENDIDAS ENTRE: '.$desde.' Y '.$hasta, 'CORPOSALUD', 'GESTION DE FACTURAS');
 
             $pdf = PDF::loadView('intranet.corposalud.pdf.reporte_facturas',[
                 'facturas'=>$datos, 
@@ -310,7 +310,7 @@ class Corposalud extends Controller
 
     public function suprimir(Request $request)
     {
-        if(verificar_permisos('DELETE', $this->modulo_id))
+        if(\App\Permiso::check_permisos('DELETE', $this->modulo_id))
         {
             $factura = Factura::where('id', $request->factura_id)
                             ->update(['edo_reg' => 0]);
@@ -318,7 +318,7 @@ class Corposalud extends Controller
 
             if( $factura)
             {
-                push_auditoria('EL USUARIO HA ELIMINADO LA FACUTRA CON EL ID '.$request->factura_id,
+                \App\Auditoria::auditoria('EL USUARIO HA ELIMINADO LA FACUTRA CON EL ID '.$request->factura_id,
                                 'CORPOSALUD', 'GESTION DE FACTURAS');
 
                 return ['fail' => false, 'mensaje' => 'La factura se ha suprimido satisfactoriamente', 'factura' => $request->id];

@@ -22,7 +22,7 @@ class CreateAuditoriaTable extends Migration
             $table->string('programa')->nullable();
 
             $table->foreign('user_id')->references('id')
-                    ->on('users')->onDelete('cascade');
+                    ->on('general.users')->onDelete('cascade');
         });
     }
 

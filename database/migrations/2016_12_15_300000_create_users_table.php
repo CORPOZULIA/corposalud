@@ -12,6 +12,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        echo "CREANDO TABLA USERS \n";
         Schema::create('general.users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('usuario');

@@ -8,4 +8,6 @@ class Nomina extends Model
 {
     protected $table = 'corposalud.nominas';
     protected $fillable = ['descripcion_nomina', 'codigo_nomina'];
+
+
 }

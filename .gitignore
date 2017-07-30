@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /public/storage
+/storage/framewok/views/*.php
 Homestead.yaml
 Homestead.json
 .env

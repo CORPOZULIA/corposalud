@@ -108,7 +108,7 @@
                             <li>
                                 <a href="#">{{ $modulo->nombre_modulo }}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    @foreach(getProgramas($modulo->id) as $programa)
+                                    @foreach(App\Modulo::getProgramas($modulo->id) as $programa)
                                         <li>
                                             <a href="{{ url('dashboard/'.$programa->url_programa) }} "> 
                                                 {{ $programa->nombre_programa }} 
@@ -127,7 +127,7 @@
         </nav>
          <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- AQUI VA EL PAGE HEADER SI SE NECESITARA -->
