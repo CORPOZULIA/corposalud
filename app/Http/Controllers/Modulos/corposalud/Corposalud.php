@@ -310,7 +310,7 @@ class Corposalud extends Controller
 
     public function suprimir(Request $request)
     {
-        if(\App\Permiso::check_permisos('DELETE', $this->modulo_id))
+        if(\App\Permiso::check_permisos('DELETE', Auth::user()->id, $this->modulo_id ))
         {
             $factura = Factura::where('id', $request->factura_id)
                             ->update(['edo_reg' => 0]);
@@ -318,8 +318,7 @@ class Corposalud extends Controller
 
             if( $factura)
             {
-                \App\Auditoria::auditoria('EL USUARIO HA ELIMINADO LA FACUTRA CON EL ID '.$request->factura_id,
-                                'CORPOSALUD', 'GESTION DE FACTURAS');
+                \App\Auditoria::auditoria('EL USUARIO HA ELIMINADO LA FACUTRA CON EL ID '.$request->factura_id, $this->modulo_id, Auth::user()->id);
 
                 return ['fail' => false, 'mensaje' => 'La factura se ha suprimido satisfactoriamente', 'factura' => $request->id];
             }
