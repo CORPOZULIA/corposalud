@@ -225,7 +225,7 @@ class Corposalud extends Controller
         *   SE ACTUALIZARA LA COLUMNA edo_factura A 1 (QUE SIGNIFICA CERRADO)
         *   RETORNA TRUE DE TENER PERMSOS
         */
-        if(\App\Permiso::check_permisos('UPDATE', $this->modulo_id))
+        if(\App\Permiso::check_permisos('UPDATE', Auth::user()->id, $this->modulo_id))
         {
             $desde  = '';
             $hasta = '';
@@ -266,8 +266,8 @@ class Corposalud extends Controller
                 ])->update(['edo_factura'=>1]);
             }
 
-            \App\Auditoria::auditoria('EL USUARIO '.Auth::user()->empleado->persona->nombres.' HA REALIZADO UN CIERRE DE LAS FACTURAS EN LAS FECHAS COMPRENDIDAS ENTRE: '.$desde.' Y '.$hasta, 'CORPOSALUD', 'GESTION DE FACTURAS');
-
+            \App\Auditoria::auditoria('EL USUARIO '.Auth::user()->empleado->persona->nombres.' HA REALIZADO UN CIERRE DE LAS FACTURAS EN LAS FECHAS COMPRENDIDAS ENTRE: '.$desde.' Y '.$hasta, $this->modulo_id, Auth::user()->id);
+                
             $pdf = PDF::loadView('intranet.corposalud.pdf.reporte_facturas',[
                 'facturas'=>$datos, 
                 'desde'=> $request->dia_desde.'/'.$request->mes_desde.'/'.$request->ano_desde, 
